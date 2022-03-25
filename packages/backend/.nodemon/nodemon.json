@@ -1,0 +1,7 @@
+{
+  "ignore": ["**/*.test.ts", "**/*.spec.ts"],
+  "watch": ["src"],
+  "exec": "npm run build && npx kill-port 50001 && node ./dist/index",
+  "ext": "ts",
+  "delay": 2500
+}

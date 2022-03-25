@@ -1,0 +1,18 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --no-hoist --strict",
+    "clear:all": "lerna run --parallel clear",
+    "start": "npm run start:all",
+    "start:all": "lerna run --parallel start",
+    "start:all:clear": "npm run clear:all && npm run bootstrap && npm run start:all",
+    "build:all": "lerna run --parallel build",
+    "build:all:clear": "npm run clear:all && npm run bootstrap && npm run build:all",
+    "test": "lerna run test --stream",
+    "lint": "lerna run lint --stream"
+  }
+}

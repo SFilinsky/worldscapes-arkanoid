@@ -1,15 +1,31 @@
 {
   "name": "root",
   "private": true,
+  "dependencies": {
+    "@worldscapes/client": "0.1.0-beta.3",
+    "@worldscapes/common": "0.1.0-beta.3",
+    "@worldscapes/server": "0.1.0-beta.3",
+    "minimist": "^1.2.6"
+  },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.7.0",
+    "eslint-plugin-import": "^2.25.4",
+    "lerna": "^4.0.0",
+    "prettier": "^2.3.1"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap --no-hoist --strict",
+    "bootstrap": "lerna bootstrap --hoist --nohoist=*angular* --strict",
+    "clear": "npm run clear:ports && npm run clear:all",
+    "clear:ports": "npx kill-port 4200 && npx kill-port 50001",
     "clear:all": "lerna run --parallel clear",
     "start": "npm run start:all",
     "start:all": "lerna run --parallel start",
     "start:all:clear": "npm run clear:all && npm run bootstrap && npm run start:all",
+    "build": "npm run build:all",
     "build:all": "lerna run --parallel build",
     "build:all:clear": "npm run clear:all && npm run bootstrap && npm run build:all",
     "test": "lerna run test --stream",

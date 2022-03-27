@@ -1,0 +1,29 @@
+{
+  "name": "@worldscapes-arkanoid/common",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "author": {
+    "name": "Siarhei Filinski",
+    "email": "sfilisnky@gmail.com"
+  },
+  "license": "ISC",
+  "scripts": {
+    "clear": "del-cli --force ./dist",
+    "build": "tsc",
+    "build:clean": "npm run clear && tsc",
+    "start": "nodemon --config .nodemon/nodemon.json",
+    "start:clean": "npm run clear && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts --f table",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "del-cli": "^4.0.1",
+    "eslint": "^7.28.0",
+    "nodemon": "^2.0.15",
+    "typescript": "~4.5.2",
+    "@types/node": "^12.11.1"
+  }
+}

@@ -1,5 +1,8 @@
 import {SimpleEcr } from "@worldscapes/common";
 import {SimpleEngineServer, SimpleNetworkServer, SimpleServerSimulation, WebsocketServerNetworkAdapter } from "@worldscapes/server";
+import {readPlayers} from "./system/readPlayers";
+
+const players = readPlayers();
 
 async function init() {
     console.log("Initializing Engine.");

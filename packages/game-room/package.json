@@ -1,5 +1,5 @@
 {
-  "name": "@worldscapes-arkanoid/backend",
+  "name": "@worldscapes-arkanoid/game-room",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,7 @@
   "license": "ISC",
   "scripts": {
     "clear": "del-cli --force ./dist",
+    "launch": "node dist/index --playerId1 1 --playerId2 2 --playerName1 Sergey --playerName2 Masha",
     "build": "tsc",
     "build:clean": "npm run clear && tsc",
     "start": "nodemon --config .nodemon/nodemon.json",
@@ -20,16 +21,11 @@
     "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
-    "@worldscapes/common": "0.1.0-beta.2",
-    "@worldscapes/server": "0.1.0-beta.2",
+    "@worldscapes-arkanoid/common": "^0.0.1",
     "del-cli": "^4.0.1",
     "eslint": "^7.28.0",
-    "eslint-config-prettier": "^8.5.0",
     "nodemon": "^2.0.15",
-    "prettier": "^2.5.1",
     "typescript": "~4.5.2",
-    "@types/node": "^12.11.1",
-    "@typescript-eslint/eslint-plugin": "^4.26.1",
-    "@typescript-eslint/parser": "^4.26.1"
+    "@types/node": "^12.11.1"
   }
 }

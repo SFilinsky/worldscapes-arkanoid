@@ -11,7 +11,7 @@
   "license": "ISC",
   "scripts": {
     "clear": "del-cli --force ./dist",
-    "launch": "node dist/index --playerId1 1 --playerId2 2 --playerName1 Sergey --playerName2 Masha",
+    "launch": "node dist/index --playerId1 '1' --playerId2 '2' --playerName1 Sergey --playerName2 Masha",
     "build": "tsc",
     "build:clean": "npm run clear && tsc",
     "start": "nodemon --config .nodemon/nodemon.json",
@@ -23,9 +23,6 @@
   "dependencies": {
     "@worldscapes-arkanoid/common": "^0.0.1",
     "del-cli": "^4.0.1",
-    "eslint": "^7.28.0",
-    "nodemon": "^2.0.15",
-    "typescript": "~4.5.2",
-    "@types/node": "^12.11.1"
+    "nodemon": "^2.0.15"
   }
 }

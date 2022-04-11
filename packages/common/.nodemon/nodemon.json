@@ -2,5 +2,6 @@
   "ignore": ["**/*.test.ts", "**/*.spec.ts"],
   "watch": ["./src"],
   "exec": "npm run build",
-  "ext": "ts"
+  "ext": "ts",
+  "delay": 500
 }

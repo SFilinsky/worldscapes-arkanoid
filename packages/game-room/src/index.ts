@@ -10,10 +10,15 @@ import {GameSettings, MatterSerializer} from "@worldscapes-arkanoid/common";
 
 import { commandInitializer } from "./setup/initializers/command.initializer";
 import { ruleInitializer } from "./setup/initializers/rule.initializer";
-import {ConsoleParams, params } from "./setup/cli/params";
+import {ConsoleParams, readArgs } from "./setup/cli/readArgs";
 
 
-const gameRoomSettings: ConsoleParams = params();
+const consoleArgs: ConsoleParams = readArgs();
+
+const gameRoomSettings = {
+    player1: consoleArgs.player1,
+    player2: consoleArgs.player2
+};
 
 const players: PlayerInfo[] = [
     gameRoomSettings.player1,
@@ -48,7 +53,7 @@ const rules = ruleInitializer(gameRoomSettings, DEFAULT_GAME_SETTINGS);
     console.log("Setting up network server.");
     const serverAdapter = new WebsocketServerNetworkAdapter(
         new SimpleServerAuth(players),
-        50001
+        consoleArgs.port
     );
     await serverAdapter.isReady();
     console.log("Network server is up.");

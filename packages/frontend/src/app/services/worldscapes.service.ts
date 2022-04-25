@@ -46,7 +46,7 @@ export class WorldscapesService {
           const clientAdapter = new WebsocketClientNetworkAdapter(
             new SimpleClientAuth({ id: identity.id }),
             '192.168.1.5',
-            50001
+            50002
           );
 
           await clientAdapter.isReady();

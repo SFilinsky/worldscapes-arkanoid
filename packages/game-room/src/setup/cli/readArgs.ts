@@ -7,7 +7,7 @@ export interface ConsoleParams {
     port: number
 }
 
-export function params(): ConsoleParams {
+export function readArgs(): ConsoleParams {
     const args = minimist(process.argv.slice(2));
 
     if (!args.port || typeof(args.port) !== 'number') {

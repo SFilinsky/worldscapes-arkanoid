@@ -1,0 +1,17 @@
+<div id="display-container">
+  <div #displayContainer></div>
+</div>
+<div class="text-container">
+  <span style="margin-bottom: 1.5rem;">
+    <span> Username: {{ (identity.identity$ | async)?.username  }} </span>
+    <span> ID: {{ (identity.identity$ | async)?.id }} </span>
+    <button style="margin-left: 0.5rem; font-size: .6rem;" *ngIf="(audio.isReady() | async) !== true" (click)="audio.allowAudio()"> Allow audio</button>
+  </span>
+  <ark-score></ark-score>
+  <ark-platforms></ark-platforms>
+  <ark-ball></ark-ball>
+  <ark-listener></ark-listener>
+  <ark-game-start style="margin-top: 1.5rem;"></ark-game-start>
+  <!--<pre style="font-size: 0.6rem"> {{ latestSnapshot$ | async | json }} </pre>-->
+</div>
+

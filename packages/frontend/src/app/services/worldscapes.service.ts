@@ -13,10 +13,15 @@ import {
   ECRQuery,
   Resolver,
   SimpleEcr,
-  PlayerAction, isSet, WorldStateSnapshot
+  PlayerAction,
+  isSet,
+  WorldStateSnapshot
 } from '@worldscapes/common';
-import {filter, Observable, tap } from 'rxjs';
+import {MatterSerializer} from "@worldscapes-arkanoid/common";
+import {filter, Observable, shareReplay, tap } from 'rxjs';
+
 import {IdentityService} from "./identity.service";
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,7 +43,11 @@ export class WorldscapesService {
       .pipe(
         filter(isSet),
         tap(async identity => {
-          const clientAdapter = new WebsocketClientNetworkAdapter(new SimpleClientAuth({ id: identity.id }), '192.168.1.5', 50001);
+          const clientAdapter = new WebsocketClientNetworkAdapter(
+            new SimpleClientAuth({ id: identity.id }),
+            '192.168.1.5',
+            50001
+          );
 
           await clientAdapter.isReady();
 
@@ -46,7 +55,10 @@ export class WorldscapesService {
 
           this.engineClient = new SimpleEngineClient(
             new SimpleClientSimulation(this.ecr),
-            new SimpleNetworkClient(clientAdapter)
+            new SimpleNetworkClient(
+              clientAdapter,
+              new MatterSerializer(),
+            )
           );
 
           this.engineClient.start();
@@ -66,8 +78,11 @@ export class WorldscapesService {
   }
 
   subscribeQuery<T extends ECRQuery>(query: T): Observable<DataQueryResult<T>> {
-    return new Observable(observer => {
+    return new Observable<DataQueryResult<T>>(observer => {
       this.ready.then(() => this.ecr.subscribeDataQuery(query, data => observer.next(data)));
-    });
+    })
+      .pipe(
+        shareReplay(1),
+      );
   }
 }

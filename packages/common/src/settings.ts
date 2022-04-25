@@ -10,9 +10,19 @@ export interface GameRoomSettings {
 
 export interface GameSettings {
     initialPoints: number,
+
     gameRoomWidth: number,
     gameRoomHeight: number,
+
     platformWidth: number,
     platformHeight: number,
     platformGapFromBorder: number,
+    platformDensity: number,
+    platformFriction: number,
+    platformRestitution: number,
+
+    ballRadius: number,
+    ballDensity: number,
+    ballRestitution: number,
+    ballInitialForce: number
 }

@@ -4,10 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "npx kill-port 4200 && ng serve --host 0.0.0.0 --disable-host-check",
+    "start:host": "npx kill-port 4200 && ng serve --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "update:engine": "npm update @worldscapes/common @worldscapes/client"
   },
   "author": {
     "name": "Siarhei Filinski",
@@ -15,7 +17,9 @@
   },
   "private": true,
   "dependencies": {
-    "@worldscapes-arkanoid/common": "^0.0.1",
+    "@worldscapes/common": "^0.1.0-beta.11",
+    "@worldscapes/client": "^0.1.0-beta.12",
+    "@worldscapes-arkanoid/common": "file:../common",
     "@angular/animations": "~13.2.0",
     "@angular/common": "~13.2.0",
     "@angular/compiler": "~13.2.0",
@@ -34,7 +38,8 @@
     "stream-http": "^3.2.0",
     "tslib": "^2.3.0",
     "url": "^0.11.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "tone": "14.7.77"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.6",
@@ -51,6 +56,7 @@
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "~1.7.0"
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "@types/matter-js": "0.17.7"
   }
 }

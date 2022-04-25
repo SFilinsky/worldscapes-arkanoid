@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+}
+
+#display-container {
+  width: 90vh;
+  max-width: 80%;
+  border: 1px solid #cccccc33;
+  box-sizing: border-box;
+}
+
+#display-container div {
+  width: 100%;
+  padding-top: 100%;
+  height: 0;
+  position: relative;
+}
+
+::ng-deep #display-container canvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-container {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+span:not(.key) {
+  font-size: 1.15rem;
+}

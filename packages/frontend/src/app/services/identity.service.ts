@@ -10,7 +10,7 @@ export interface Identity {
 @Injectable()
 export class IdentityService {
 
-  readonly identity$: Observable<Identity | null>;
+  readonly identity$: Observable<Identity>;
 
   constructor(
     public route: ActivatedRoute,

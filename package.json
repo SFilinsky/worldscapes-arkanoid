@@ -2,9 +2,6 @@
   "name": "root",
   "private": true,
   "dependencies": {
-    "@worldscapes/client": "0.1.0-beta.10",
-    "@worldscapes/common": "0.1.0-beta.10",
-    "@worldscapes/server": "0.1.0-beta.10",
     "minimist": "^1.2.6"
   },
   "devDependencies": {
@@ -28,11 +25,12 @@
     "start": "npm run start:all",
     "start:all": "lerna run --parallel start",
     "start:all:clear": "npm run clear:all && npm run bootstrap && npm run start:all",
+    "start:ngrok": "ngrok start game-room frontend",
     "build": "npm run build:all",
     "build:all": "lerna run --parallel build",
     "build:all:clear": "npm run clear:all && npm run bootstrap && npm run build:all",
     "test": "lerna run test --stream",
     "lint": "lerna run lint --stream",
-    "update:engine": "npm update @worldscapes/common @worldscapes/client @worldscapes/server && npm run bootstrap"
+    "update:engine": "lerna run --parallel update:engine && npm run bootstrap"
   }
 }

@@ -1,0 +1,8 @@
+tunnels:
+    game-room:
+        addr: 50001
+        proto: http
+    frontend:
+        addr: 4200
+        proto: http
+region: eu

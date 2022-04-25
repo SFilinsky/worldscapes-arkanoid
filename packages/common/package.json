@@ -18,9 +18,11 @@
     "start:clean": "npm run clear && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts --f table",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "update:engine": "npm update @worldscapes/common"
   },
   "dependencies": {
+    "@worldscapes/common": "^0.1.0-beta.11",
     "del-cli": "^4.0.1",
     "nodemon": "^2.0.15"
   }

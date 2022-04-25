@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Catamaran";
+  src: local("Catamaran"), url(./assets/fonts/font.ttf) format("truetype");
+}
+
+* {
+  font-family: "Catamaran", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1.25px;
+  color: hsl(0deg 0% 85%);
+}
+
+div:hover, span:hover {
+  cursor: default;
+}
+
+html {
+  background-color: black;
+}
+
+span.key {
+  display: inline-flex;
+  color: black;
+  background: white;
+  padding: 0.125em 0.5em;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  vertical-align: middle;
+}
+
+button {
+  color: black;
+  border-radius: 0;
+  border: 0;
+  padding: 0.15rem 0.5rem;
+  vertical-align: middle;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button.dark {
+}

@@ -11,18 +11,25 @@
   "license": "ISC",
   "scripts": {
     "clear": "del-cli --force ./dist",
-    "launch": "node dist/index --playerId1 '1' --playerId2 '2' --playerName1 Sergey --playerName2 Masha",
+    "launch": "node dist/index --port 50002 --playerId1 '1' --playerId2 '2' --playerName1 Sergey --playerName2 Masha",
     "build": "tsc",
     "build:clean": "npm run clear && tsc",
     "start": "nodemon --config .nodemon/nodemon.json",
     "start:clean": "npm run clear && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext .ts --f table",
-    "format": "prettier --write \"src/**/*.ts\""
+    "format": "prettier --write \"src/**/*.ts\"",
+    "update:engine": "npm update @worldscapes/common @worldscapes/server"
   },
   "dependencies": {
-    "@worldscapes-arkanoid/common": "^0.0.1",
+    "@worldscapes/common": "^0.1.0-beta.11",
+    "@worldscapes/server": "^0.1.0-beta.11",
+    "@worldscapes-arkanoid/common": "file:../common",
     "del-cli": "^4.0.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "matter-js": "0.18.0"
+  },
+  "devDependencies": {
+    "@types/matter-js": "0.17.7"
   }
 }

@@ -8,7 +8,7 @@ To start, you can check game [simulation rules](./packages/game-room/src/rules/f
 
 To see how Worldscapes Server is bootstrapped, take a look at [Game Room index.js](packages/game-room/src/index.ts). The assumption is that there could be a matchmaking server that starts several separate rooms (but it's out of the scope of this implementation).
 
-To see how Worldscapes Client is wrapped to allow input and rendering, you can see [Worldscapes Service](packages/frontend/src/app/services/worldscapes.service.ts). It is simple wrapper to allow engine Client instance to be accessed on the client-side. Also, it wraps queries to be accessed as Observable in Angular context, making it essentially a stream of game simulation updates.
+To see how Worldscapes Client is wrapped to allow input and rendering, you can see [Worldscapes Service](packages/frontend/src/app/services/worldscapes.service.ts). It allows queries to be accessed as Observable in Angular context, making it essentially a stream of game simulation updates, as well as convering input throughout client frontend into Worldscapes input events.
 
 Initial game state is defined by [Initializers](packages/game-room/src/setup/initializers).
 
